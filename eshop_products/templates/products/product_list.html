@@ -1,0 +1,62 @@
+{% extends 'shared/Main_layout.html' %}
+{% load static %}
+{% load render_partial %}
+{% block title %} محصولات{% endblock %}
+{% block header %}
+    <link rel="stylesheet" href="{% static "css/custom_styles.css" %}"> {% endblock %}
+{% block content %}
+    <section>
+        <div class="container">
+            <div class="row">
+
+                <div class="col-sm-9 padding-right">
+                    <div class="features_items"><!--features_items-->
+                        <h2 class="title text-center"> لیست محصولات </h2>
+                        {% for product in page_obj %}
+                            <div class="col-sm-4">
+                                {% include 'products/product_box.html' with product=product %}
+                            </div>
+                        {% endfor %}
+
+
+                        <ul class="pagination">
+                            {% if page_obj.has_previous %}
+
+                                <li><a href="?page={{ page_obj.previous_page_number }}">قبلی</a></li>
+                            {% endif %}
+                            {% for page in paginator.page_range %}
+                                {% if page == page_obj.number %}
+                                    <li class="active"><a href="?page={{ page }}">{{ page }}</a></li>
+                                    {% else %}
+                                    <li><a href="?page={{ page }}">{{ page }}</a></li>
+                                {% endif %}
+
+                            {% endfor %}
+                            {% if page_obj.has_next %}
+                                <li>
+                                    <a href="?page={{ page_obj.next_page_number }}">بعدی</a>
+                                </li>
+
+                            {% endif %}
+
+                        </ul>
+                    </div><!--features_items-->
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="left-sidebar">
+                        <h2>دسته بندی محصولات</h2>
+                        <div class="panel-group category-products" id="accordian"><!--category-productsr-->
+                            {% render_partial 'category_render_partial' %}
+
+                        </div><!--/category-productsr-->
+
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </section>
+{% endblock %}

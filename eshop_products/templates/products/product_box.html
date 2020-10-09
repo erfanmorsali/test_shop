@@ -1,0 +1,24 @@
+{% load humanize %}
+<div class="product-image-wrapper">
+    <div class="single-products">
+        <div class="productinfo text-center">
+            <img style="width: 250px; height: 250px;" src="{{ product.image.url }}" alt="">
+            <h2 style="color: #6fc341;font-size: 22px;">{{ product.price | intcomma:False }} <span
+                    style="color: #6fc341;font-size: 17px;">تومان</span></h2>
+            <p>{{ product.description | truncatewords:6 }}</p>
+{#            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>#}
+            <br>
+            <a style="margin-top: -20px;" href="{% url 'product_detail' product_id=product.id slug=product.slug %}"
+               class="btn btn-info btn-block"
+               id="product_box_button">جزییات محصول</a>
+        </div>
+
+    </div>
+    <div class="choose">
+        <ul class="nav nav-pills nav-justified">
+            <li><a href="{% url 'add_favourite_product' product_id=product.id %}"><i
+                    class="fa fa-plus-square"></i>لیست علاقه مندی ها</a></li>
+            <li><a href=""><i class="fa fa-plus-square"></i>مقایسه</a></li>
+        </ul>
+    </div>
+</div>

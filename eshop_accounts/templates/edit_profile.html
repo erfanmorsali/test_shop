@@ -1,0 +1,59 @@
+{% extends "shared/Main_layout.html" %}
+{% block title %}ویرایش اطلاعات{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <form id="main-contact-form" class="contact-form row" name="contact-form" method="post">
+                    {% csrf_token %}
+
+                    <div class="form-group col-md-12">
+                        <label for="{{ edit_profile_form.user_name.id_for_label }}">{{ edit_profile_form.user_name.label }}</label>
+                        {{ edit_profile_form.user_name }}
+                        {% for error in edit_profile_form.user_name.errors %}
+                            <p class="danger">
+                                {{ error }}
+                            </p>
+                        {% endfor %}
+                    </div>
+
+
+                    <div class="form-group col-md-6">
+                        <label for="{{ edit_profile_form.last_name.id_for_label }}">{{ edit_profile_form.last_name.label }}</label>
+                        {{ edit_profile_form.last_name }}
+                        {% for error in edit_profile_form.last_name.errors %}
+                            <p class="danger">
+                                {{ error }}
+                            </p>
+                        {% endfor %}
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="{{ edit_profile_form.first_name.id_for_label }}">{{ edit_profile_form.first_name.label }}</label>
+                        {{ edit_profile_form.first_name }}
+                        {% for error in edit_profile_form.first_name.errors %}
+                            <p class="danger">
+                                {{ error }}
+                            </p>
+                        {% endfor %}
+                    </div>
+
+                    <button style="margin-right: 15px;" type="submit" class="btn btn-info">
+                        ثبت
+                    </button>
+
+                </form>
+            </div>
+            <div style="    border: black 1px solid;
+    padding-top: 13px;
+    background-color: #0d3633;" class="col-md-4">
+                <div class="list-group">
+                    <a href="/" class="list-group-item disabled">
+                        خانه
+                    </a>
+                    <a href="{% url 'logout' %}" class="list-group-item">خروج</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

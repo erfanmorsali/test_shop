@@ -1,0 +1,98 @@
+{% extends 'shared/Main_layout.html' %}
+{% load static %}
+{% block title %}تماس با ما{% endblock %}
+{% block content %}
+<div id="contact-page" class="container">
+    {% include 'shared/succsess_message.html' %}
+    	<div class="bg">
+	    	<div class="row">
+				<div class="container">
+	    			<div class="col-sm-12" style="overflow: hidden; margin-bottom: 40px">
+						<h2 class="title text-center">تمـاس با مـا</h2>
+                        <center>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d8268.176385373516!2d50.960159638154046!3d35.78832672795073!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9ca0fe5339337b8c!2z2KjYp9iy2KfYsSDYudmF2K_ZhyDZgdix2YjYtNin2YYg2b7Yp9iz2KfYsdqv2KfYrw!5e1!3m2!1sen!2sde!4v1601191535515!5m2!1sen!2sde" width="800" height="600" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                        </center>
+					</div>
+				</div>
+				</div>
+    		<div class="row">
+	    		<div class="col-sm-8">
+	    			<div class="contact-form">
+	    				<h2 class="title text-center">با ما در ارتباط باشیـد</h2>
+	    				<div class="status alert alert-success" style="display: none"></div>
+				    	<form id="main-contact-form" class="contact-form row" name="contact-form" method="post">
+				           {% csrf_token %}
+                            <div class="form-group col-md-6">
+                                <label for="{{ contact_form.full_name.id_for_label }}">{{ contact_form.full_name.label }}</label>
+                            {{ contact_form.full_name }}
+                            {% for error in contact_form.full_name.errors %}
+                                <p class="danger">
+                                {{ error }}
+                                </p>
+                            {% endfor %}
+                            </div>
+
+                         <div class="form-group col-md-6">
+                                <label for="{{ contact_form.email.id_for_label }}">{{ contact_form.email.label }}</label>
+                            {{ contact_form.email }}
+                        {% for error in contact_form.email.errors %}
+                            <p class="danger">
+                            {{ error }}
+                            </p>
+                        {% endfor %}
+                         </div>
+                           <div class="form-group col-md-12">
+                                <label for="{{ contact_form.subject.id_for_label }}">{{ contact_form.subject.label }}</label>
+                        {{ contact_form.subject }}
+                           </div>
+                            <div class="form-group col-md-12">
+                                <label for="{{ contact_form.message.id_for_label }}">{{ contact_form.message.label }}</label>
+                            {{ contact_form.message }}
+                            </div>
+                        <button style="margin-right: 15px;" type="submit" class="btn btn-info">
+                            ثبت نظر شما
+                        </button>
+
+				        </form>
+	    			</div>
+	    		</div>
+	    		<div class="col-sm-4">
+	    			<div class="contact-info">
+	    				<h2 class="title text-center">اطلاعات تماس</h2>
+	    				<address>
+	    					<p>{{ information.name}}</p>
+							<p>{{ information.address }}</p>
+							<p>تلفن تماس : {{ information.phone}}</p>
+							<p style="font-family: tahoma;">ایمیـل : {{ information.email}}</p>
+	    				</address>
+	    				<div class="social-networks">
+	    					<h2 class="title text-center">شبکـه های اجتـماعی</h2>
+							<span class="socials-share share">
+									<ul>
+										<a href="#">
+											<li>
+												<label>بلـه</label>
+												<img src="{% static 'images/product-details/Bale.png' %}">
+											</li>
+										</a>
+										<a href="#">
+											<li>
+												<label>سـروش</label>
+												<img src="{% static 'images/product-details/Soroush.png' %}">
+											</li>
+										</a>
+										<a href="#">
+											<li>
+												<label>اینستاگرام</label>
+												<img src="{% static 'images/product-details/Instagram.png' %}">
+											</li>
+										</a>
+									</ul>
+								</span>
+	    				</div>
+	    			</div>
+    			</div>
+	    	</div>
+    	</div>
+    </div>
+{% endblock %}

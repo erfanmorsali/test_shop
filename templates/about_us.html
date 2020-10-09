@@ -1,0 +1,50 @@
+{% extends 'shared/Main_layout.html' %}
+{% load static %}
+{% block title %}درباره ی ما{% endblock %}
+{% block content %}
+    <div id="contact-page" class="container">
+    	<div class="bg">
+
+    		<div class="row">
+				<div class="col-sm-4">
+	    			<div class="contact-info">
+	    				<h2 class="title text-center">لوگـو شرکت</h2>
+						<img width="300px;" height="300px;" src="{{ information.logo.url }}" class="img-responsive">
+	    			</div>
+    			</div>
+	    		<div class="col-sm-8">
+	    			<div class="about">
+	    				<h2 class="title text-center">دربـاره ما</h2>
+						<p class="about-desc">
+	    				{{ information.about_us }}
+						</p>
+						<p class="about-desc">
+							کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.
+						</p>
+	    			</div>
+	    		</div>
+	    	</div>
+
+			<div class="row">
+				<div class="col-sm-12 about-address">
+					<address>
+	    				<p>{{ information.name}} | {{ information.address}} | تلفن تماس : {{information.phone}} |  ایمیـل :
+                            {{ information.email}}
+						</p>
+	    			</address>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="container">
+	    			<div class="col-sm-12" style="overflow: hidden; margin-bottom: 40px;">    			   		<h2 class="title text-center">مـا اینجـا هستیـم ... </h2>
+							<center>
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d8268.176385373516!2d50.960159638154046!3d35.78832672795073!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9ca0fe5339337b8c!2z2KjYp9iy2KfYsSDYudmF2K_ZhyDZgdix2YjYtNin2YYg2b7Yp9iz2KfYsdqv2KfYrw!5e1!3m2!1sen!2sde!4v1601191535515!5m2!1sen!2sde" width="800" height="600" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                            </center>
+					</div>
+				</div>
+			</div>
+
+    	</div>
+    </div>
+{% endblock %}

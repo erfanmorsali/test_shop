@@ -1,0 +1,21 @@
+{% extends 'shared/Main_layout.html' %}
+{% block title %}پنل کاربری{% endblock %}
+{% block content %}
+    {% include "shared/succsess_message.html" %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8"></div>
+            <div style="    border: black 1px solid;
+    padding-top: 13px;
+    background-color: #0d3633;" class="col-md-4">
+                <div class="list-group">
+                    <a href="/" class="list-group-item disabled">
+                        خانه
+                    </a>
+                    <a href="{% url 'edit_profile' %}" class="list-group-item">تغییر اطلاعات کاربری</a>
+                    <a href="{% url 'logout' %}" class="list-group-item">خروج</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
