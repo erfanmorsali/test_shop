@@ -1,4 +1,4 @@
-#!/home/erfan/PycharmProjects/new_shop_project/venv/bin/python
+#!/home/erfan/PycharmProjects/new_shop_project/venv/bin/python3.8
 # When the django-admin.py deprecation ends, remove this script.
 import warnings
 
