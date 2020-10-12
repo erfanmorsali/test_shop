@@ -1,0 +1,24 @@
+version: '3.7'
+
+services:
+  web:
+    build: .
+    volumes:
+      - ./files/:/app/static_cdn
+    ports:
+      - 8000:8000
+    env_file:
+      - ./.env.dev
+    depends_on:
+      - database
+  database:
+    image: postgres:12.0-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=pguser
+      - POSTGRES_PASSWORD=pgpassword
+      - POSTGRES_DB=myweb
+
+volumes:
+  postgres_data:

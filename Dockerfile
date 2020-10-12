@@ -1,14 +1,14 @@
 FROM python:3.8
 
-RUN mkdir -p /usr/src/app
+RUN mkdir /app
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
-COPY requirements.txt ./
+COPY ./src/requirements.txt ./
 
 RUN pip install -r requirements.txt
 
-COPY . .
+COPY ./src/ .
 
 EXPOSE 8000
 
